@@ -1,7 +1,7 @@
-var fs = require("fs");
-var path = require("path");
-var inquirer = require("inquirer");
-var info = require("./generateMarkdown.js");
+let fs = require("fs");
+const path = require("path");
+const inquirer = require("inquirer");
+let info = require("./generateMarkdown.js");
 
 //Questions to retrieve README information
 const questions = [

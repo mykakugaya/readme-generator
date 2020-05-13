@@ -1,5 +1,15 @@
 function generateMarkdown(data) {
-    return `# ${data.projectname}
+    // const axios = require("axios");
+    // const queryUrl = `https://api.github.com/users/${data.username}/repos?per_page=100`;
+    // axios.get(queryUrl)
+    //     .then(function(response) {
+    //         const image = response[0].owner.avatar_url;
+    //     })
+
+    return `![NPM Version](https://img.shields.io/npm/v/npm?style=flat)
+![NPM License](https://img.shields.io/static/v1?label=license&message=${data.license}&color=brightgreen)
+
+# ${data.projectname}
 ${data.url}
 
 ## Description
@@ -32,8 +42,8 @@ ${data.tests}
 
 ## Questions
 If you have any questions about this repo, open an issue or contact ${data.username} directly at ${data.email}.
-
 `;
-} 
+}
+// ![mykakugaya](${image})
 
 module.exports = {generateMarkdown: generateMarkdown}
