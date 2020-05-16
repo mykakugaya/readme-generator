@@ -1,8 +1,10 @@
 let fs = require("fs");
-const path = require("path");
 const inquirer = require("inquirer");
-let info = require("./generateMarkdown.js");
+const util = require('util')
+let generate = require("./generateMarkdown.js");
+const axios = require("axios");
 
+fs.writeFile = util.promisify(fs.writeFile)
 //Questions to retrieve README information
 const questions = [
     {
@@ -58,14 +60,16 @@ const questions = [
     },
 ]
 
-function writeToFile(filename, data) {
-    return fs.writeFileSync(path.join(process.cwd(), filename), data);
+async function init() {
+try{
+   const response = await inquirer.prompt(questions);
+   const res = await axios.get(`https://api.github.com/users/${response.username}`)
+   let avatar = res.data.avatar_url;
+   const data = generate({...response, avatar});
+    await fs.writeFileSync("README.md", data); 
+}catch(err){
+    console.log(err)
 }
-
-function init() {
-    inquirer.prompt(questions).then(function(response) {
-        writeToFile("README.md", info.generateMarkdown({ ...response}));
-    })
 }
 
 init();

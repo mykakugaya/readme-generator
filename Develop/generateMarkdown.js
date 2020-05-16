@@ -3,7 +3,7 @@ function generateMarkdown(data) {
     // const queryUrl = `https://api.github.com/users/${data.username}/repos?per_page=100`;
     // axios.get(queryUrl)
     //     .then(function(response) {
-    //         const image = response[0].owner.avatar_url;
+    //         const source = response[0].owner.avatar_url;
     //     })
 
     return `![NPM Version](https://img.shields.io/npm/v/npm?style=flat)
@@ -25,7 +25,7 @@ ${data.description}
 
 ## Installation
 To install necessary dependencies, run the following command:
-${data.install}
+> ${data.install}
 
 ## Usage
 ${data.usage}
@@ -38,12 +38,12 @@ ${data.contribute}
 
 ## Tests
 To run tests, run the following command:
-${data.tests}
+> ${data.tests}
 
 ## Questions
+<img src="https://avatars3.githubusercontent.com/u/61670275?v=4" width="100px" alt="Github Profile">
 If you have any questions about this repo, open an issue or contact ${data.username} directly at ${data.email}.
 `;
 }
-// ![mykakugaya](${image})
 
-module.exports = {generateMarkdown: generateMarkdown}
+module.exports = generateMarkdown;
