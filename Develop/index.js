@@ -61,15 +61,15 @@ const questions = [
 ]
 
 async function init() {
-try{
-   const response = await inquirer.prompt(questions);
-   const res = await axios.get(`https://api.github.com/users/${response.username}`)
-   let avatar = res.data.avatar_url;
-   const data = generate({...response, avatar});
-    await fs.writeFileSync("README.md", data); 
-}catch(err){
-    console.log(err)
-}
+    try{
+        const response = await inquirer.prompt(questions);
+        const res = await axios.get(`https://api.github.com/users/${response.username}`)
+        let avatar = res.data.avatar_url;
+        const data = generate({...response, avatar});
+        await fs.writeFileSync("README.md", data); 
+    }catch(err){
+        console.log(err)
+    }
 }
 
 init();
