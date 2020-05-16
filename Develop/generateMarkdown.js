@@ -41,7 +41,7 @@ To run tests, run the following command:
 > ${data.tests}
 
 ## Questions
-<img src="https://avatars3.githubusercontent.com/u/61670275?v=4" width="100px" alt="Github Profile">
+<img src="https://avatars3.githubusercontent.com/u/61670275?v=4" width="100px" alt="Github Profile"><br>
 If you have any questions about this repo, open an issue or contact ${data.username} directly at ${data.email}.
 `;
 }
