@@ -1,11 +1,4 @@
 function generateMarkdown(data) {
-    // const axios = require("axios");
-    // const queryUrl = `https://api.github.com/users/${data.username}/repos?per_page=100`;
-    // axios.get(queryUrl)
-    //     .then(function(response) {
-    //         const source = response[0].owner.avatar_url;
-    //     })
-
     return `![NPM Version](https://img.shields.io/npm/v/npm?style=flat)
 ![NPM License](https://img.shields.io/static/v1?label=license&message=${data.license}&color=brightgreen)
 
@@ -41,7 +34,7 @@ To run tests, run the following command:
 > ${data.tests}
 
 ## Questions
-<img src="https://avatars3.githubusercontent.com/u/61670275?v=4" width="100px" alt="Github Profile"><br>
+<img src="${data.avatar}" width="100px" alt="Github Profile"><br>
 If you have any questions about this repo, open an issue or contact ${data.username} directly at ${data.email}.
 `;
 }
